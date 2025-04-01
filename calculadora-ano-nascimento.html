@@ -1,0 +1,16 @@
+<html>
+    <body>
+        <script>
+            const currentYear = new Date().getFullYear(); // ano atual
+            var userAge = prompt("Digite a sua idade."); // usuário digita a idade atual dele
+            const wasBorn = currentYear - userAge; // o ano atual menos a idade do usuário
+
+            //verifica se a idade fornecida pelo usuário é um valor positivo.
+            while(wasBorn <= 0){
+                userAge = prompt("Digite a idade correta.");
+            }
+
+            alert("Seu ano de nascimento é: "+ wasBorn); //exibe os resultados ao usuário.
+        </script>
+    </body>
+</html>
