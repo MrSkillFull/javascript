@@ -1,0 +1,55 @@
+<html>
+    <body>
+        <script>
+
+            //declaração das variáveis globais
+            var numInicial;
+            var numFinal;
+            var operador;
+            
+           numInicial = Number(prompt("Digite um número:")); //pede ao usuário um número
+
+           //verifica se o usuário passou um valor numérico
+            while(isNaN(numInicial)){
+                numInicial = Number(prompt("O valor digitado não é um número válido, por favor, digite um número:"));
+            }
+
+           numFinal = Number(prompt("Digite outro número:")); //pede ao usuário outro número
+
+           //verifica se o usuário passou um valor numérico
+           while(isNaN(numFinal)){
+                numFinal = Number(prompt("O valor digitado não é um número válido, por favor, digite um número:"));
+            }
+
+           operador = prompt("Digite um operador matemático:"); //pede ao usuário um operador matemático
+
+            //validação do operador matemático
+            while(operador != "+" && operador != "-" && operador != "*" && operador != "/" && operador != "^"){
+                operador = prompt("Digite um operador matemático válido.")
+            }
+
+            //função para verificar a expressão a ser feita e calcular de acordo.
+            var calcular = ()=>{
+                if(operador == "+"){
+                    let calc = numInicial + numFinal;
+                    return calc;
+                }else if(operador == "-"){
+                    let calc = numInicial - numFinal;
+                    return calc;
+                }else if(operador == "*"){
+                    let calc = numInicial * numFinal;
+                    return calc;
+                }else if(operador == "/"){
+                    let calc = numInicial / numFinal;
+                    return calc;
+                }else if(operador == "^"){
+                    let calc = numInicial ** numFinal;
+                    return calc;
+                }
+            }
+
+            alert("O resultado da sua expressão é: " + calcular());
+
+        </script>
+    </body>
+</html>
