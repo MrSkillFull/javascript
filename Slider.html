@@ -1,0 +1,76 @@
+<html>
+    <body>
+
+        <style>
+            .container-main{
+                display: block;
+                margin: 30px  auto 0 auto;
+                width: 300px;
+                height: 400px;
+            }
+            .container-fotos{
+                position: relative;
+                width: 300px;
+                height: 300px;
+            }
+            .container-fotos img{
+                transition: 1s;
+                opacity: 0;
+                position: absolute;
+                top: 0;
+                left: 0;
+                border-radius: 20px;
+            }
+            .container-bullets{
+                text-align: center;
+            }
+            .bullet-single{
+                border-radius: 20px;
+                margin: 20px 10px 0 0;
+                display: inline-block;
+                background-color: gainsboro;
+                width: 20px;
+                height: 20px;
+                cursor: pointer;
+            }
+            .active-bullet{
+                background-color: gray;
+            }
+        </style>
+
+        <div class="container-main">
+            <div class="container-fotos">
+                <img style="opacity: 1 !important;" src="https://picsum.photos/id/102/300" alt="">
+                <img src="https://picsum.photos/id/101/300" alt="">
+                <img  src="https://picsum.photos/id/100/300" alt="">
+            </div>
+                <div class="container-bullets">
+                    <div class="bullet-single active-bullet"></div>
+                    <div class="bullet-single"></div>
+                    <div class="bullet-single"></div>
+                </div>
+        </div>
+
+        <script>
+            var lastIndex = 0;
+            var images = document.querySelectorAll('.container-fotos img');
+            images.forEach((item, index)=>{
+                let bullets = document.querySelectorAll('.bullet-single');
+                bullets[index].addEventListener('click', ()=>{
+                    let lastImage = images[lastIndex];
+                    let currentImage = images[index];
+                    lastImage.style.opacity = 0;
+                    currentImage.style.opacity = 1;
+
+                    let lastBullet = bullets[lastIndex];
+                    lastBullet.classList.remove('active-bullet')
+                    let currentBullet = bullets[index];
+                    currentBullet.classList.add('active-bullet')
+                    lastIndex = index;
+                    
+                })
+            })
+        </script>
+
+    </body>
+</html>
